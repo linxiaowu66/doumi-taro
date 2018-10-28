@@ -27,6 +27,10 @@ class Index extends Component {
 
   componentDidHide () { }
 
+  navToArticleList = () => {
+    Taro.navigateTo({ url: `/pages/article/list` })
+  }
+
   render () {
     return (
       <View className='home-container'>
@@ -94,7 +98,7 @@ class Index extends Component {
               </View>
             </View>
           </View>
-          <View className='hot-articles'>热门文章<Text className='nav-to-all'>(全部博客文章)</Text></View>
+          <View className='hot-articles'>热门文章<Text className='nav-to-all' onClick={this.navToArticleList()}>(全部博客文章)</Text></View>
           <View className='article-list'>
             <View className='article'>
               <Text className='title'>由form表单来说说前后台数据之间的交互</Text>

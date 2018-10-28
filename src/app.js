@@ -36,19 +36,17 @@ class App extends Component {
     // 框架有坑，不会自动获取目录下的index文件，需要加上文件名
     pages: [
       'pages/home/index',
+      'pages/article/list'
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: '点我达跑腿',
+      navigationBarTitleText: '豆米的博客',
       navigationBarTextStyle: 'black',
       backgroundColor: '#f6f7f8',
     },
   }
   componentDidMount() {
-    // 定时上传埋点数据至大数据
-    const { Track } = require('./util/track')
-    Track.start()
   }
   render () {
     return (
