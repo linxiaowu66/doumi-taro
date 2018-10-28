@@ -1,0 +1,5 @@
+packages/*
+config/*
+src/config/*
+src/assets/*
+config/prod

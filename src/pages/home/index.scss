@@ -1,0 +1,198 @@
+@-webkit-keyframes 'sb-pulse'{
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(139,195,74,.5);
+    box-shadow: 0 0 0 0 rgba(139,195,74,.5);
+  }
+  70% {
+    -webkit-box-shadow: 0 0 0 20px rgba(139,195,74,0);
+    box-shadow: 0 0 0 20px rgba(139,195,74,0);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 rgba(139,195,74,0);
+    box-shadow: 0 0 0 0 rgba(139,195,74,0);
+  }
+}
+.home-container{
+  .header{
+    .wedding-link{
+      position: fixed;
+      top: 0.9090909090909091rem;
+      right: 0.9090909090909091rem;
+      z-index: 200;
+      display: block;
+      padding: 0.4090909090909091rem 0.5454545454545454rem 0.2727272727272727rem;
+      border-radius: 50%;
+      background: #8bc34a;
+      color: #fff;
+      transition: background 0.6s ease-out;
+      animation: sb-pulse 2s infinite;
+      font-size: 0.8181818181818182rem;
+      line-height: 1.4318181818181819rem;
+    }
+  }
+  .wrapper{
+    width: 90%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding-top: 2.272727272727273rem;
+    .blog-profile{
+      position: relative;
+      margin: 2.727272727272727rem 0 1.3636363636363635rem 0;
+      padding: 2.727272727272727rem 0 0 0;
+      border-top: #EBF2F6 2px solid;
+      .author-image{
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        top: -2.727272727272727rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 5.454545454545454rem;
+        height: 5.454545454545454rem;
+        border-radius: 100%;
+        overflow: hidden;
+        padding: 0.2727272727272727rem;
+        background: #fff;
+        z-index: 2;
+        box-shadow: #E7EEF2 0 0 0 1px;
+        .img {
+          position: relative;
+          display: block;
+          width: 100%;
+          height: 100%;
+          background-image: url(/images/douMi.jpg);
+          background-size: cover;
+          background-position: center center;
+          border-radius: 100%;
+        }
+      }
+      .author {
+        .name{
+          font-size: 1rem;
+          margin: 0;
+          color: rgb(17, 157, 85);
+        }
+        .description{
+          margin: 0.2727272727272727rem 0;
+          font-size: 0.8181818181818182rem;
+          line-height: 1.4318181818181819rem;
+          color: rgb(58, 65, 69);
+        }
+        .author-meta{
+          padding: 0;
+          margin: 0;
+          list-style: none;
+          font-size: 0.6363636363636364rem;
+          line-height: 1;
+          font-style: italic;
+          color: #9EABB3;
+          div{
+            margin: 0 0.9090909090909091rem 0.45454545454545453rem 0;
+          }
+          .wedding-url{
+            font-weight: bold;
+            color: #119d55;
+            transition: color 400ms,background-color 400ms;
+          }
+        }
+      }
+    }
+    .navigation{
+      position: relative;
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      .nav-item{
+        flex-basis: 50%;
+        margin-bottom: 0.45454545454545453rem;
+        position: relative;
+        .nav-pic{
+          vertical-align: middle;
+        }
+        .nav-text{
+          position: absolute;
+          top: 0px;
+          background: rgba(0, 0, 0,0.5);
+          bottom: 0px;
+          left: 0px;
+          right: 0px;
+          color: #fff;
+          .text-title{
+            font-size: 1.0909090909090908rem;
+            line-height: 1.5454545454545454rem;
+            margin: 0.22727272727272727rem 0 0 0.36363636363636365rem;
+          }
+          .text-content{
+            font-size: 0.8181818181818182rem;
+            margin-left: 1.4545454545454546rem;
+            width: 6.818181818181818rem;
+          }
+          .text-location{
+            position: absolute;
+            right: 2%;
+            bottom: 5%;
+          }
+        }
+      }
+    }
+    .hot-articles{
+      font-size: 1rem;
+      margin: 1.3636363636363635rem 0px;
+      font-weight: bold;
+      color: #119d55;
+      .nav-to-all{
+        font-size: 80%;
+      }
+    }
+    .article-list{
+      padding: 0;
+      margin: 0;
+      .article{
+        width: 100%;
+        display: block;
+        border-bottom: 0.045454545454545456rem solid #ddd;
+        border-top: 0.045454545454545456rem solid #fff;
+        padding: 0.36363636363636365rem 0.5454545454545454rem;
+        .title{
+          line-height: inherit;
+          font-weight: normal;
+          color: rgb(51, 153, 204);
+          font-size: 0.8181818181818182rem;
+        }
+        .time{
+          color: #bbbbbb;
+          font-size: 0.5454545454545454rem;
+          font-weight: normal;
+          margin-left: 0.45454545454545453rem;
+        }
+        &:nth-child(1):before, &:nth-child(2):before, &:nth-child(3):before, &:nth-child(4):before, &:nth-child(5):before{
+          display: inline-block;
+          width: 0.6818181818181818rem;
+          height: 0.6818181818181818rem;
+          margin:0 0.22727272727272727rem;
+          font-size: 0.5454545454545454rem;
+          border: 0.09090909090909091rem solid #ccc;
+          text-align: center;
+          line-height: 0.7272727272727273rem;
+          color: #119d55;
+          box-sizing: content-box;
+        }
+        &:nth-child(1):before{
+          content: "1";
+        }
+        &:nth-child(2):before{
+          content: "2";
+        }
+        &:nth-child(3):before{
+          content: "3";
+        }
+        &:nth-child(4):before{
+          content: "4";
+        }
+        &:nth-child(5):before{
+          content: "5";
+        }
+      }
+    }
+  }
+}

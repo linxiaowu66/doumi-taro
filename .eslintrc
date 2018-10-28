@@ -1,0 +1,14 @@
+{
+  "extends": ["taro"],
+  "rules": {
+    "no-unused-vars": ["error", { "varsIgnorePattern": "Taro" }],
+    "taro/jsx-handler-names": 0,
+    "taro/custom-component-children": 0
+  },
+  "parser": "babel-eslint",
+  "globals": {
+    "wx": true,
+    "AMap": true,
+    "terra": true,
+  }
+}
