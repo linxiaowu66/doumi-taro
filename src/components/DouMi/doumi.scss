@@ -1,0 +1,62 @@
+.blog-profile{
+  position: relative;
+  margin: 2.727272727272727rem 0 1.3636363636363635rem 0;
+  padding: 2.727272727272727rem 0 0 0;
+  border-top: #EBF2F6 2px solid;
+  .author-image{
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    top: -2.727272727272727rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5.454545454545454rem;
+    height: 5.454545454545454rem;
+    border-radius: 100%;
+    overflow: hidden;
+    padding: 0.2727272727272727rem;
+    background: #fff;
+    z-index: 2;
+    box-shadow: #E7EEF2 0 0 0 1px;
+    .img {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-image: url(/images/douMi.jpg);
+      background-size: cover;
+      background-position: center center;
+      border-radius: 100%;
+    }
+  }
+  .author {
+    .name{
+      font-size: 1rem;
+      margin: 0;
+      color: rgb(17, 157, 85);
+    }
+    .description{
+      margin: 0.2727272727272727rem 0;
+      font-size: 0.8181818181818182rem;
+      line-height: 1.4318181818181819rem;
+      color: rgb(58, 65, 69);
+    }
+    .author-meta{
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      font-size: 0.6363636363636364rem;
+      line-height: 1;
+      font-style: italic;
+      color: #9EABB3;
+      div{
+        margin: 0 0.9090909090909091rem 0.45454545454545453rem 0;
+      }
+      .wedding-url{
+        font-weight: bold;
+        color: #119d55;
+        transition: color 400ms,background-color 400ms;
+      }
+    }
+  }
+}

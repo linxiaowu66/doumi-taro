@@ -1,11 +1,9 @@
-const pkg = require('../package.json')
-const ish5 = process.argv.indexOf('h5') > -1
-
 const config = {
-  projectName: 'raytheon',
+  projectName: 'taro-test',
+  date: '2018-10-21',
   designWidth: 750,
   sourceRoot: 'src',
-  outputRoot: ish5 ? 'dist/h5' : 'dist/applets',
+  outputRoot: 'dist',
   plugins: {
     babel: {
       sourceMap: true,
@@ -18,18 +16,43 @@ const config = {
         'transform-object-rest-spread'
       ]
     },
+    typescript: {
+      compilerOptions: {
+        allowSyntheticDefaultImports: true,
+        baseUrl: '.',
+        declaration: false,
+        experimentalDecorators: true,
+        jsx: 'preserve',
+        jsxFactory: 'Nerv.createElement',
+        module: 'commonjs',
+        moduleResolution: 'node',
+        noImplicitAny: false,
+        noUnusedLocals: true,
+        outDir: './dist/',
+        preserveConstEnums: true,
+        removeComments: false,
+        rootDir: '.',
+        sourceMap: true,
+        strictNullChecks: true,
+        target: 'es6'
+      },
+      include: [
+        'src/**/*'
+      ],
+      exclude: [
+        'node_modules'
+      ],
+      compileOnSave: false
+    }
   },
   defineConstants: {
-    WWW: JSON.stringify('www')
   },
   weapp: {
 
   },
   h5: {
     publicPath: '/',
-    staticDirectory: `${pkg.version}/static`,
-    outputJsRoot: `${pkg.version}/js`,
-    pkgversion: `${pkg.version}`,
+    staticDirectory: 'static',
     module: {
       postcss: {
         autoprefixer: {

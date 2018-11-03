@@ -1,19 +1,16 @@
 {
   "name": "doumi-taro",
   "version": "1.0.0",
-  "description": "RN/micro-program/h5 version for doumi blog",
+  "description": "RN/micro-program/h5 version for doumi blog(https://blog.5udou.cn)",
   "main": "index.js",
   "scripts": {
-    "build:h5": "npm run dev:bef && taro build --type h5",
-    "dev:h5": "npm run dev:bef && taro build --type h5 --watch",
-    "build": "npm run dev:bef && taro build --type weapp",
-    "buildload": "cross-env webpack --config webpack/dload.config.js",
-    "dev": "npm run dev:bef && taro build --type weapp --watch",
-    "remove": "rm -rf \"./node_modules/@tarojs/cli/src/config\" && rm -rf \"./node_modules/@tarojs/webpack-runner/src/config\" && rm -rf \"./node_modules/@tarojs/taro-h5/dist/index.js\"",
-    "copy": "ncp \"./packages/taro-cli/src/config\" \"./node_modules/@tarojs/cli/src/config\" && ncp \"./packages/webpack-runner/src/\" \"./node_modules/@tarojs/webpack-runner/src/\"  && ncp \"./packages/taro-h5/index.js\" \"./node_modules/@tarojs/taro-h5/dist/index.js\"",
-    "dev:bef": "npm run remove && npm run copy",
+    "build:weapp": "taro build --type weapp",
+    "build:h5": "taro build --type h5",
+    "build:rn": "taro build --type rn",
+    "dev:weapp": "npm run build:weapp -- --watch",
+    "dev:h5": "npm run build:h5 -- --watch",
+    "dev:rn": "npm run build:rn -- --watch",
     "lint": "eslint ./src --cache --fix --ignore-pattern .gitignore",
-    "precommit-msg": "echo Pre-commit checking...please wait && exit 0",
     "upload": "npm run build:h5 && npm run buildload && node ./bin/upload.js",
     "upload:img": "node ./bin/uploadImg.js",
     "deploy": "node ./bin/commander.js sp"
@@ -21,13 +18,14 @@
   "author": "linxiaowu66",
   "license": "MIT",
   "dependencies": {
-    "@tarojs/async-await": "^0.0.59",
-    "@tarojs/components": "^0.0.59",
-    "@tarojs/redux": "^0.0.59",
-    "@tarojs/router": "^0.0.59",
-    "@tarojs/taro": "^0.0.59",
-    "@tarojs/taro-h5": "^0.0.59",
-    "@tarojs/taro-weapp": "^0.0.59",
+    "@tarojs/async-await": "^1.1.0",
+    "@tarojs/components": "^1.1.0",
+    "@tarojs/redux": "^1.1.0",
+    "@tarojs/redux-h5": "^1.1.0",
+    "@tarojs/router": "^1.1.0",
+    "@tarojs/taro": "^1.1.0",
+    "@tarojs/taro-h5": "^1.1.0",
+    "@tarojs/taro-weapp": "^1.1.0",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-polyfill": "^6.26.0",
     "better-scroll": "^1.12.4",
@@ -47,14 +45,11 @@
     "weixin-js-sdk": "^1.3.3"
   },
   "devDependencies": {
-    "@tarojs/cli": "^0.0.59",
-    "@tarojs/plugin-babel": "^0.0.59",
-    "@tarojs/plugin-csso": "^0.0.59",
-    "@tarojs/plugin-sass": "^0.0.59",
-    "@tarojs/plugin-uglifyjs": "^0.0.59",
-    "@tarojs/webpack-runner": "^0.0.59",
-    "ali-cdn-sdk": "^1.2.0",
-    "ali-oss": "4.8.0",
+    "@tarojs/plugin-babel": "^1.1.0",
+    "@tarojs/plugin-csso": "^1.1.0",
+    "@tarojs/plugin-sass": "^1.1.0",
+    "@tarojs/plugin-uglifyjs": "^1.1.0",
+    "@tarojs/webpack-runner": "^1.1.0",
     "babel-eslint": "^8.2.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
@@ -63,44 +58,16 @@
     "co": "^4.6.0",
     "commander": "^2.16.0",
     "eslint": "^4.19.1",
-    "eslint-config-taro": "^0.0.47",
+    "eslint-config-taro": "^1.1.0",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-react": "^7.9.1",
-    "eslint-plugin-taro": "^0.0.48",
+    "eslint-plugin-taro": "^1.1.0",
     "fs-extra": "^7.0.0",
-    "ghooks": "^2.0.0",
     "ncp": "^2.0.0",
     "ora": "^3.0.0",
-    "os": "^0.1.1",
-    "prepare-commit-msg-dianwoda": "^0.2.1",
-    "validate-commit-msg": "^2.11.1"
+    "os": "^0.1.1"
   },
   "engines": {
     "node": ">=7.6.0"
-  },
-  "config": {
-    "validate-commit-msg": {
-      "types": [
-        "feat",
-        "fix",
-        "docs",
-        "style",
-        "refactor",
-        "perf",
-        "test",
-        "chore",
-        "revert"
-      ],
-      "warnOnFail": false,
-      "maxSubjectLength": 100,
-      "subjectPattern": ".+",
-      "subjectPatternErrorMsg": "subject does not match subject pattern!",
-      "helpMessage": ""
-    },
-    "ghooks": {
-      "pre-commit": "npm run precommit-msg && npm run lint",
-      "prepare-commit-msg": "prepare-commit-msg-dianwoda $2 $3",
-      "commit-msg": "validate-commit-msg"
-    }
   }
 }

@@ -1,15 +1,6 @@
 .list-container{
   background-color: #F5F5F5;
-  .header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.45454545454545453rem 0.9090909090909091rem;
-    .logo{
-      font-size: 0.9090909090909091rem;
-      color: rgb(17, 157, 85);
-    }
-  }
+
   .bread-crumb{
     margin: 0.45454545454545453rem;
     font-size: 0.6363636363636364rem;
@@ -57,85 +48,6 @@
         color: rgb(17, 157, 85);
         font-size: 0.6363636363636364rem;
       }
-    }
-  }
-  .nav-menu{
-    // right: -12.727272727272727rem;
-    right: 0px;
-    opacity: 0.5;
-    transition: opacity 400ms cubic-bezier(0.7, 0, 0.3, 1), right 400ms cubic-bezier(0.7, 0, 0.3, 1);
-    background: #000;
-    width: 12.727272727272727rem;
-    height: 100%;
-    color: #fff;
-    position: fixed;
-    top: 0;
-    opacity: 0;
-    z-index: 99999;
-    .close{
-      position: absolute;
-      top: 0.7272727272727273rem;
-      right: 0.7272727272727273rem;
-      z-index: 1;
-      color: #fff;
-      border-radius: 100%;
-      width: 1.4545454545454546rem;
-      height: 1.4545454545454546rem;
-      line-height: 1.4545454545454546rem;
-      text-align: center;
-      font-size: 0.7272727272727273rem;
-      background: rgba(17, 157, 85, 0.5);
-    }
-    .menu{
-      padding: 0.9090909090909091rem;
-      .item{
-        color: #FFF;
-        width: 100%;
-        margin: 0.9090909090909091rem auto 0.9090909090909091rem;
-        padding-left: 0.22727272727272727rem;
-        .title{
-          padding: 0.6818181818181818rem 0.6818181818181818rem 0.6818181818181818rem 0px;
-          border-bottom: 1px solid #CCC;
-        }
-        .cat-list, .archive-list{
-          font-size: 0.7272727272727273rem;
-          padding-left: 0.6818181818181818rem;
-        }
-        .archive-month{
-          font-size: 0.6363636363636364rem;
-          padding-left: 1.3636363636363635rem;
-        }
-      }
-    }
-  }
-  .widget{
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-    margin-bottom: 1.3636363636363635rem;
-    padding: 0.9090909090909091rem;
-    position: relative;
-    background-color: #FFF;
-    .title{
-      margin-top: 0;
-      padding-bottom: 0.3181818181818182rem;
-      border-bottom: 1px solid #ebebeb;
-      margin-bottom: 0.45454545454545453rem;
-      position: relative;
-      font-size: 0.8181818181818182rem;
-      &:after{
-        content: "";
-        width: 4.090909090909091rem;
-        height: 1px;
-        background: #119d55;
-        position: absolute;
-        left: 0;
-        bottom: -1px;
-      }
-    }
-    .statistics{
-      display: flex;
-      justify-content: space-between;
-      color: rgb(0, 166, 124);
-      font-size: 0.6363636363636364rem;
     }
   }
 }

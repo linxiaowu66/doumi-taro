@@ -1,0 +1,30 @@
+.widget{
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  margin-bottom: 1.3636363636363635rem;
+  padding: 0.9090909090909091rem;
+  position: relative;
+  background-color: #FFF;
+  .title{
+    margin-top: 0;
+    padding-bottom: 0.3181818181818182rem;
+    border-bottom: 1px solid #ebebeb;
+    margin-bottom: 0.45454545454545453rem;
+    position: relative;
+    font-size: 0.8181818181818182rem;
+    &:after{
+      content: "";
+      width: 4.090909090909091rem;
+      height: 1px;
+      background: #119d55;
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+    }
+  }
+  .statistics{
+    display: flex;
+    justify-content: space-between;
+    color: rgb(0, 166, 124);
+    font-size: 0.6363636363636364rem;
+  }
+}

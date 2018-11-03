@@ -2,13 +2,13 @@ import Taro, { Component } from '@tarojs/taro'
 
 import { Provider } from '@tarojs/redux'
 
-import { View } from '@tarojs/components'
-
 import '@tarojs/async-await'
 
 import configStore from './store'
 import './util/polyfill'
 import Raytheon from './util/raytheon'
+
+import Index from './pages/home/index'
 
 const ENV = process.env.NODE_ENV || 'development'
 if (Taro.getEnv() === 'WEAPP') {
@@ -33,10 +33,10 @@ const store = configStore()
 class App extends Component {
   //对应小程序主配置
   config = {
-    // 框架有坑，不会自动获取目录下的index文件，需要加上文件名
     pages: [
       'pages/home/index',
-      'pages/article/list'
+      'pages/article/list',
+      'pages/article/detail'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -51,7 +51,7 @@ class App extends Component {
   render () {
     return (
       <Provider store={store}>
-        <View />
+        <Index />
       </Provider>
     )
   }

@@ -1,6 +1,9 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image, ScrollView } from '@tarojs/components'
 import Footer from '../../components/Footer'
+import Widget from '../../components/Widget'
+import Header from '../../components/Header';
+import Menu from '../../components/Menu';
 
 import './list.scss'
 
@@ -19,17 +22,14 @@ class ArticleList extends Component {
 
   componentDidHide () { }
 
-  navToArticleList = () => {
-    Taro.navigateTo({ url: `/pages/article/list` })
+  navToArticleDetail = () => {
+    Taro.navigateTo({ url: `/pages/article/detail` })
   }
 
   render () {
     return (
       <View className='list-container'>
-        <View className='header'>
-          <View className='logo'>豆米的博客</View>
-          <View className='menu'>菜单</View>
-        </View>
+        <Header />
         <View className='bread-crumb'>
           <Text>首页</Text>
           <Text>/ 博文列表</Text>
@@ -90,52 +90,8 @@ class ArticleList extends Component {
             <View className='nav-to-detail'>阅读全文</View>
           </View>
         </ScrollView>
-        <View className='nav-menu'>
-          <View className='close'>X</View>
-          <View className='menu'>
-            <View className='item'>首页</View>
-            <View className='item'>
-              <View className='cat title'>分类</View>
-              <View className='cat-list'>
-                <View>nodejs</View>
-                <View>css</View>
-                <View>数据库</View>
-              </View>
-            </View>
-            <View className='item'>
-              <View className='archive title'>归档</View>
-              <View className='archive-list'>
-                <View className='archive-year'>2016年</View>
-                  <View className='archive-month'>2016年01月 (1)</View>
-                  <View className='archive-month'>2016年02月 (2)</View>
-                  <View className='archive-month'>2016年03月 (12)</View>
-                <View className='archive-year'>2017年</View>
-                <View className='archive-year'>2018年</View>
-              </View>
-            </View>
-            <View className='item'>关于豆米</View>
-            <View className='item'>关于本站</View>
-          </View>
-        </View>
-        <View className='widget'>
-          <View className='title'>网站统计</View>
-          <View className='statistics'>
-            <Text>文章数：</Text>
-            <Text>81</Text>
-          </View>
-          <View className='statistics'>
-            <Text>今日新增文章数：</Text>
-            <Text>81</Text>
-          </View>
-          <View className='statistics'>
-            <Text>网站访问量：</Text>
-            <Text>81</Text>
-          </View>
-          <View className='statistics'>
-            <Text>今日访问量：</Text>
-            <Text>81</Text>
-          </View>
-        </View>
+        <Menu />
+        <Widget />
         <Footer />
       </View>
     )
