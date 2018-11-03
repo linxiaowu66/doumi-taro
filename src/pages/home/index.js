@@ -6,7 +6,6 @@ import DouMi from '../../components/DouMi';
 import './index.scss'
 
 /* eslint-disable */
-const doumi = require('../../assets/douMi.jpg')
 const index1 = require('../../assets/index1.jpg')
 const index2 = require('../../assets/index2.jpg')
 const index3 = require('../../assets/index3.jpg')
@@ -39,6 +38,7 @@ class Index extends Component {
           <Text className='wedding-link'>5udou.cn</Text>
         </View>
         <View className='wrapper'>
+          <DouMi nickName='豆米' />
           <View className='navigation'>
             <View className='nav-item'>
               <Image src={index1} className='nav-pic' />
@@ -86,7 +86,7 @@ class Index extends Component {
               </View>
             </View>
           </View>
-          <View className='hot-articles'>热门文章<Text className='nav-to-all' onClick={this.navToArticleList()}>(全部博客文章)</Text></View>
+          <View className='hot-articles'>热门文章<Text className='nav-to-all' onClick={() => this.navToArticleList()}>(全部博客文章)</Text></View>
           <View className='article-list'>
             <View className='article'>
               <Text className='title'>由form表单来说说前后台数据之间的交互</Text>

@@ -45,7 +45,7 @@ class ArticleList extends Component {
           onScrolltoupper={this.onScrolltoupper}
           onScroll={this.onScroll}
         >
-          <View className='article-block'>
+          <View className='article-block' onClick={() => this.navToArticleDetail()}>
             <View className='title'>Git Tag在软件版本发布中的实践</View>
             <View className='ribble'>
               2018-09-10

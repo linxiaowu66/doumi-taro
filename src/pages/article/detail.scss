@@ -7,4 +7,54 @@
       padding-right: 0.36363636363636365rem;
     }
   }
+  .article-content{
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    margin-bottom: 30px;
+    padding: 20px;
+    position: relative;
+    background-color: #FFF;
+    .article-header{
+      display: flex;
+      align-items: center;
+      .article-date{
+        display: flex;
+        flex-direction: column;
+        font-size: 0.8181818181818182rem;
+        align-items: center;
+        margin-right: 0.22727272727272727rem;
+        & span:first-child{
+          border-bottom: 2px solid #119d55;
+          font-weight: 600;
+          line-height: 110%;
+        }
+        & span:nth-child(2) {
+          font-style: normal;
+          text-transform: uppercase;
+        }
+      }
+      .article-title{
+        font-size: 0.8181818181818182rem;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      .article-hot{
+        font-size: 0.6818181818181818rem;
+        color: #119d55
+      }
+    }
+    .article-tags{
+      margin: 20px 0px;
+      span{
+        border: 0.045454545454545456rem solid #119d55;
+        height: 1.8181818181818181rem;
+        line-height: 1.8181818181818181rem;
+        display: inline-block;
+        padding: 0px 0.22727272727272727rem;
+        border-radius: 0.22727272727272727rem;
+        color: #119d55;
+        margin-right: 0.45454545454545453rem;
+      }
+    }
+  }
 }

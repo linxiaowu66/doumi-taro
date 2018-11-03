@@ -8,7 +8,7 @@ import configStore from './store'
 import './util/polyfill'
 import Raytheon from './util/raytheon'
 
-import Index from './pages/home/index'
+import Index from './pages/home/index.js'
 
 const ENV = process.env.NODE_ENV || 'development'
 if (Taro.getEnv() === 'WEAPP') {
