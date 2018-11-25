@@ -1,0 +1,108 @@
+.resume-container{
+  width: 90%;
+  max-width: 34.54545454545455rem;
+  margin: 0 auto;
+  padding-top: 2.272727272727273rem;
+  .personal-info {
+    position: relative;
+    margin: 2.727272727272727rem 0 1.3636363636363635rem 0;
+    padding: 2.727272727272727rem 0 0 0;
+    border-top: #EBF2F6 2px solid;
+    text-align: center;
+    .author-image {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      top: -2.727272727272727rem;
+      left: 50%;
+      margin-left: -2.4545454545454546rem;
+      width: 5.454545454545454rem;
+      height: 5.454545454545454rem;
+      border-radius: 100%;
+      overflow: hidden;
+      padding: 0.2727272727272727rem;
+      background: #fff;
+      z-index: 2;
+      box-shadow: #E7EEF2 0 0 0 1px;
+      .img {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-image: url(https://weddingimage.oss-cn-hangzhou.aliyuncs.com/weddingPhotos/062.jpg);
+        background-size: cover;
+        background-position: center center;
+        border-radius: 100%;
+      }
+    }
+    .name {
+      color: #464c5b;
+      font-size: 1.3636363636363635rem;
+    }
+    .summary {
+      color: #657180;
+      font-size: 0.6363636363636364rem;
+    }
+    .another {
+      span {
+        line-height: 0.5454545454545454rem;
+        padding-right: 0.6363636363636364rem;
+        margin-right: 0.36363636363636365rem;
+        font-size: 0.6363636363636364rem;
+        color: #9ea7b4;
+      }
+    }
+  }
+  .experiment {
+    position: relative;
+    margin: 2.727272727272727rem 0 1.3636363636363635rem 0;
+    padding: 1.3636363636363635rem 0 0 0;
+    border-top: #EBF2F6 2px solid;
+    .title {
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      top: -1rem;
+      left: 50%;
+      margin-left: -2.4545454545454546rem;
+      overflow: hidden;
+      padding: 0.2727272727272727rem;
+      background: #fff;
+      z-index: 2;
+    }
+    .dianwoda {
+      .company {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span:first-child {
+          font-weight: 700;
+          font-size: 1rem;
+          line-height: 2em;
+          color: #212529;
+        }
+        span:last-child {
+          font-size: 0.8181818181818182rem;
+          color: #adb5bd;
+        }
+      }
+      .project{
+        .name {
+          font-size: 0.8181818181818182rem;
+          color: #495057;
+        }
+        .list {
+          margin-top: 0;
+          margin-bottom: 0.45454545454545453rem;
+          padding-left: 1.8181818181818181rem;
+          .item {
+            color: #868e96;
+            font-size: 0.6363636363636364rem;
+          }
+        }
+      }
+    }
+  }
+}

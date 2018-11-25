@@ -36,7 +36,10 @@ class App extends Component {
     pages: [
       'pages/home/index',
       'pages/article/list',
-      'pages/article/detail'
+      'pages/article/detail',
+      'pages/about/blog',
+      'pages/about/doumi',
+      'pages/resume/mizha'
     ],
     window: {
       backgroundTextStyle: 'light',

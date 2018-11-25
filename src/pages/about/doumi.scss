@@ -1,0 +1,28 @@
+.doumi-container{
+  background-color: #F5F5F5;
+  padding: 0px 0.6818181818181818rem;
+  .feature{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 0.45454545454545453rem;
+    margin: 0.45454545454545453rem;
+    .title{
+      font-size: 1rem;
+    }
+    .desc{
+      margin: 0.45454545454545453rem 0;
+      font-size: 0.8181818181818182rem;
+      line-height: 0.8181818181818182rem;
+    }
+  }
+  .why{
+    font-size: 1.3636363636363635rem;
+    color: #119d55;
+    margin-top: 0.9090909090909091rem;
+    margin-bottom: 0.45454545454545453rem;
+  }
+  .answer{
+    margin: 0.45454545454545453rem 0;
+    font-size: 0.8181818181818182rem;
+    line-height: 1rem;
+  }
+}
