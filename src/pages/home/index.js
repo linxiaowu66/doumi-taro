@@ -1,7 +1,9 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
+import { connect } from '@tarojs/redux'
 import Footer from '../../components/Footer'
 import DouMi from '../../components/DouMi';
+import { fetchHottestArticles } from '../../actions/index'
 
 import './index.scss'
 
@@ -12,13 +14,32 @@ const index3 = require('../../assets/index3.jpg')
 const index4 = require('../../assets/index4.jpg')
 const index5 = require('../../assets/index5.jpg')
 
+@connect(({ articleReducer }) => ({
+  articleReducer
+}), (dispatch) => ({
+  async fetchHottestArticles(res) {
+    return await dispatch(fetchHottestArticles(res))
+  },
+}))
+
 class Index extends Component {
   config = {
     navigationBarTitleText: '首页'
   }
-
+  constructor() {
+    super(...arguments)
+  }
+  async componentWillMount() {
+    this.props.fetchHottestArticles(10)
+    // 为什么在这里使用await的话，会报错
+    // const list = await this.props.fetchHottestArticles(10)
+    // this.setState({
+    //   hottestArticles: list
+    // })
+    // 在render函数中使用这个值去渲染起初会报错：（in promise） hottestArticles.map is not function
+  }
   componentWillReceiveProps (nextProps) {
-    console.log(this.props, nextProps)
+    // console.log(this.props, nextProps)
   }
 
   componentWillUnmount () { }
@@ -32,6 +53,8 @@ class Index extends Component {
   }
 
   render () {
+    const { hottestArticles } = this.props.articleReducer
+    console.log('.......>>', hottestArticles)
     return (
       <View className='home-container'>
         <View className='header'>
@@ -87,12 +110,17 @@ class Index extends Component {
             </View>
           </View>
           <View className='hot-articles'>热门文章<Text className='nav-to-all' onClick={() => this.navToArticleList()}>(全部博客文章)</Text></View>
-          <View className='article-list'>
-            <View className='article'>
-              <Text className='title'>由form表单来说说前后台数据之间的交互</Text>
-              <Text className='time'>2016-09-24 19:57</Text>
-            </View>
-          </View>
+          {
+            hottestArticles && hottestArticles.map(item => (
+              <View className='article-list'>
+                <View className='article'>
+                  <Text className='title'>{item.title}</Text>
+                  <Text className='time'>{item.archiveTime}</Text>
+                </View>
+              </View>
+            ))
+          }
+
         </View>
         <Footer />
       </View>

@@ -6,7 +6,6 @@ import '@tarojs/async-await'
 
 import configStore from './store'
 import './util/polyfill'
-import Raytheon from './util/raytheon'
 
 import Index from './pages/home/index.js'
 
@@ -22,8 +21,6 @@ if (Taro.getEnv() === 'WEAPP') {
     // setLocation : true,
   })
   global.fundebug = fundebug;
-} else {
-  Raytheon.mount()
 }
 
 

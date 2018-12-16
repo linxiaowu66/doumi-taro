@@ -7,9 +7,6 @@ const isAndroid = isWeb && (navigator.userAgent.toLowerCase().indexOf('android')
 const isIpx = isWeApp ? (wx.getSystemInfoSync().model.indexOf('iPhone X') > -1) : (navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) && screen.height === 812)
 const isIos8 = !isWeApp && navigator.userAgent.toLowerCase().match(/os 8/i)
 const isAndroidLow = !isWeApp && get_android_version() === '5.1.1'
-// const qqMapKey = 'WZBBZ-DDP6G-YHNQK-IYUJX-TI3GZ-YXF2Y'
-const qqMapKey = ENV === 'development' ? 'DZYBZ-73WWI-FG6GZ-5JRFR-PNVIE-4OFUL' : 'DRFBZ-K6UWI-HEKGY-57ZZU-63EH5-HMFGO'
-const AMapKey = 'a5ebc730f80db3b1375a691afad00942'
 
 function get_android_version() {
   const ua = navigator.userAgent.toLowerCase();
@@ -21,6 +18,14 @@ function get_android_version() {
       // version = parseInt(version.split('.')[0]);// 得到版本号第一位
   }
   return version;
+}
+
+function getGatewayAddr() {
+  return {
+    // development: `http://${process.env.IP}:13950`,
+    development: 'http://127.0.0.1:1337',
+    production: 'https://blog.5udou.cn',
+  }[ENV]
 }
 
 function getHost() {
@@ -58,14 +63,12 @@ module.exports = {
   port: getPort(),
   host: getHost(),
   testOnRealWeiXinEnv: testOnRealWeixinEnv(),
-  entryPageAddr: getEntryPageAddr(),
+  gatewayAddr: getGatewayAddr(),
+  // entryPageAddr: getEntryPageAddr(),
   ENV,
-  qqMapKey,
-  AMapKey,
   // 运行环境判断
   isWeApp,
   isWeb,
-  isShopApp,
   isIpx,
   isWeiXin,
   isAndroid,

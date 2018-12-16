@@ -1,48 +1,27 @@
 import Taro from '@tarojs/taro'
 import {
   checkHttpStatus,
-  // checkRespResult,
-  // catchHttpError,
   checkRespStatus,
-  parseUA,
 } from './helper'
 import {
-  insertItemToStorage,
-  getItemFromStorage
+  // insertItemToStorage,
+  // getItemFromStorage
 } from './storage'
 import config from '../config/index'
-import Raytheon from '../util/raytheon'
 
-const apiVersion = 'v1'
-const platforms = {
-  'WEAPP': 'weApp',
-  'SHOPAPP': 'shopWeb',
-  'CNAPP': 'guoguo'
-}
+// const apiVersion = 'v1'
+
 
 function createBaseParams(method) {
-  const user = getItemFromStorage('user') ? JSON.parse(getItemFromStorage('user')) : {dwdUser:{}}
-  let token = getItemFromStorage('token') || ''
-  let userId = user.dwdUser.id ? user.dwdUser.id : ''
-  let cityId = user.dwdUser.cityId ? user.dwdUser.cityId : ''
-  const ua = navigator ? navigator.userAgent : '';
-  const platform = platforms[Raytheon.getEnv()] || ''
-  if (Raytheon.getEnv() === 'SHOPAPP') {
-    token = parseUA(ua).token
-    userId = parseUA(ua).userId
-    cityId = parseUA(ua).cityId || 1
-  }
   // console.log('platform', platform)
   let header = {
     'Content-Type':  'application/x-www-form-urlencoded; charset=UTF-8',
-    'Authorization': `JWT ${token}`,
-    'DAdditional-info': `token/${token} userId/${userId} cityid/${cityId} sign/123 platform/${platform}`,
   }
   // 微信小程序需要手动设置cookie
   if (config.isWeApp) {
     header = {
       ...header,
-      'Cookie': getItemFromStorage('dwdSession'),
+      'Cookie': '',
     }
   }
   const params = {
@@ -56,7 +35,7 @@ function createBaseParams(method) {
 const request = (url, method) => query => new Promise((resolve, reject) => {
   const preApi = config.gatewayAddr
   // console.log(method, url, query, { ...createBaseParams(method) }, preApi)
-  const urlReal = url.indexOf('http') > -1 ? url : `${preApi}/${apiVersion}/api${url}`
+  const urlReal = url.indexOf('http') > -1 ? url : `${preApi}/api${url}`
   const reg = /http(s)?:/
   let getQuery = '?'
   if (query) {
@@ -86,8 +65,8 @@ const request = (url, method) => query => new Promise((resolve, reject) => {
   Taro.request(requestParams)
   .then(async (resp) => {
     const res = await checkHttpStatus(resp)
-    const cookie = resp.header['set-cookie'] || resp.header['Set-Cookie']
-    cookie && insertItemToStorage('dwdSession', cookie)
+    // const cookie = resp.header['set-cookie'] || resp.header['Set-Cookie']
+    console.log(res)
     const result = res.data
     await checkRespStatus(res)
     resolve(result)
