@@ -1,13 +1,22 @@
 import Taro, { Component } from '@tarojs/taro'
+import { connect } from '@tarojs/redux'
 import { View, Text } from '@tarojs/components'
 import Footer from '../../components/Footer'
 import Menu from '../../components/Menu';
 import Widget from '../../components/Widget';
 import Header from '../../components/Header'
 import DouMi from '../../components/DouMi';
+import { fetchArticleDetail } from '../../actions/index'
 
 import './detail.scss'
 
+@connect(({ articleReducer }) => ({
+  articleReducer
+}), (dispatch) => ({
+  async fetchArticleDetail(res) {
+    return await dispatch(fetchArticleDetail(res))
+  },
+}))
 class ArticleDetail extends Component {
   config = {
     navigationBarTitleText: '博客'
@@ -16,7 +25,11 @@ class ArticleDetail extends Component {
   componentWillReceiveProps (nextProps) {
     console.log(this.props, nextProps)
   }
+  async componentWillMount() {
+    const { slug } = this.$router.params
 
+    this.props.fetchArticleDetail({ slug })
+  }
   componentWillUnmount () { }
 
   componentDidShow () { }
@@ -24,29 +37,34 @@ class ArticleDetail extends Component {
   componentDidHide () { }
 
   render () {
+    const { articleDetail } = this.props.articleReducer
+    console.log('******))))', articleDetail)
     return (
       <View className='detail-container'>
         <Header />
         <View className='bread-crumb'>
           <Text>首页</Text>
           <Text>/ 博文列表</Text>
-          <Text>Git Tag在软件版本发布中的实践</Text>
+          <Text>{`/ ${articleDetail && articleDetail.title}`}</Text>
         </View>
         <View className='article-content'>
           <View className='article-header'>
             <View className='article-date'>
-              <Text>20</Text>
-              <Text>Oct</Text>
+              <Text>{articleDetail && articleDetail.archiveDay}</Text>
+              <Text>{articleDetail && articleDetail.archiveMonth}</Text>
             </View>
-            <View className='article-title'>Git Tag在软件版本发布中的实践</View>
-            <View className='article-hot'>607℃</View>
+            <View className='article-title'>{articleDetail && articleDetail.title}</View>
+            <View className='article-hot'>{`${articleDetail & articleDetail.pageViewsCount}℃`}</View>
           </View>
           <View className='article-tags'>
-            <Text>git</Text>
-            <Text>tag</Text>
+          {
+            articleDetail && articleDetail.tagsArray && articleDetail.tagsArray.map((tag, idx) => (<Text key={idx}>{tag}</Text>))
+          }
           </View>
           <View className='article-text'>
-
+          {
+            articleDetail && articleDetail.content
+          }
           </View>
           <DouMi
             imgStyle={{

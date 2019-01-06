@@ -11,6 +11,9 @@
   top: 0;
   opacity: 0;
   z-index: 99999;
+  &.show{
+    right: 200px;
+  }
   .close{
     position: absolute;
     top: 0.7272727272727273rem;

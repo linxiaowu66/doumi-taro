@@ -6,6 +6,9 @@ export const getHottestArticles = request('/blog/list/hottest')
 // 获取文章列表
 export const getArticleListByPage = request('/blog/list')
 
+// 获取文章详情
+export const getArticleDetail = request('/blog/detail')
+
 // 获取豆米博客网站统计数据
 export const getWebsiteStatistics = request('/website/statistics')
 

@@ -1,17 +1,34 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image, ScrollView } from '@tarojs/components'
+import { connect } from '@tarojs/redux'
 import Footer from '../../components/Footer'
 import Widget from '../../components/Widget'
 import Header from '../../components/Header';
 import Menu from '../../components/Menu';
+import { fetchArticleListByPage } from '../../actions/index'
 
 import './list.scss'
 
+@connect(({ articleReducer }) => ({
+  articleReducer
+}), (dispatch) => ({
+  async fetchArticleListByPage(res) {
+    return await dispatch(fetchArticleListByPage(res))
+  },
+}))
 class ArticleList extends Component {
   config = {
     navigationBarTitleText: '博客列表'
   }
-
+  constructor() {
+    super(...arguments)
+    this.state = ({
+      isShowMenu: false
+    })
+  }
+  async componentWillMount() {
+    this.props.fetchArticleListByPage(10)
+  }
   componentWillReceiveProps (nextProps) {
     console.log(this.props, nextProps)
   }
@@ -22,14 +39,22 @@ class ArticleList extends Component {
 
   componentDidHide () { }
 
-  navToArticleDetail = () => {
-    Taro.navigateTo({ url: `/pages/article/detail` })
+  navToArticleDetail = (detail) => {
+    Taro.navigateTo({ url: `/pages/article/detail?slug=${detail.slug}` })
+  }
+
+  showMenu = () => {
+    this.setState({
+      isShowMenu: true
+    })
   }
 
   render () {
+    const { articleList } = this.props.articleReducer
+    const { isShowMenu } = this.state
     return (
       <View className='list-container'>
-        <Header />
+        <Header showMenu={this.showMenu} />
         <View className='bread-crumb'>
           <Text>首页</Text>
           <Text>/ 博文列表</Text>
@@ -45,52 +70,23 @@ class ArticleList extends Component {
           onScrolltoupper={this.onScrolltoupper}
           onScroll={this.onScroll}
         >
-          <View className='article-block' onClick={() => this.navToArticleDetail()}>
-            <View className='title'>Git Tag在软件版本发布中的实践</View>
-            <View className='ribble'>
-              2018-09-10
+        {
+          articleList && articleList.map(article => (
+            <View className='article-block' onClick={this.navToArticleDetail.bind(this, article)} key={article.id}>
+              <View className='title'>{article.title}</View>
+              <View className='ribble'>
+                {article.archiveTime}
+              </View>
+              <Image src={article.picture} />
+              <View className='brief'>
+                <Text>{article.digest}</Text>
+              </View>
+              <View className='nav-to-detail'>阅读全文</View>
             </View>
-            <Image src='https://blogimages2016.oss-cn-hangzhou.aliyuncs.com/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/tag-release.png?x-oss-process=style/addWaterMark' />
-            <View className='brief'>
-              <Text>侧耳测测测测测</Text>
-            </View>
-            <View className='nav-to-detail'>阅读全文</View>
-          </View>
-          <View className='article-block'>
-            <View className='title'>Git Tag在软件版本发布中的实践</View>
-            <View className='ribble'>
-              2018-09-10
-            </View>
-            <Image src='https://blogimages2016.oss-cn-hangzhou.aliyuncs.com/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/tag-release.png?x-oss-process=style/addWaterMark' />
-            <View className='brief'>
-              <Text>侧耳测测测测测</Text>
-            </View>
-            <View className='nav-to-detail'>阅读全文</View>
-          </View>
-          <View className='article-block'>
-            <View className='title'>Git Tag在软件版本发布中的实践</View>
-            <View className='ribble'>
-              2018-09-10
-            </View>
-            <Image src='https://blogimages2016.oss-cn-hangzhou.aliyuncs.com/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/tag-release.png?x-oss-process=style/addWaterMark' />
-            <View className='brief'>
-              <Text>侧耳测测测测测</Text>
-            </View>
-            <View className='nav-to-detail'>阅读全文</View>
-          </View>
-          <View className='article-block'>
-            <View className='title'>Git Tag在软件版本发布中的实践</View>
-            <View className='ribble'>
-              2018-09-10
-            </View>
-            <Image src='https://blogimages2016.oss-cn-hangzhou.aliyuncs.com/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/tag-release.png?x-oss-process=style/addWaterMark' />
-            <View className='brief'>
-              <Text>侧耳测测测测测</Text>
-            </View>
-            <View className='nav-to-detail'>阅读全文</View>
-          </View>
+          ))
+        }
         </ScrollView>
-        <Menu />
+        <Menu isShow={isShowMenu} />
         <Widget />
         <Footer />
       </View>
