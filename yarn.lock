@@ -1457,7 +1457,7 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-better-scroll@^1.14.1, better-scroll@^1.15.2:
+better-scroll@^1.14.1:
   version "1.15.2"
   resolved "http://r.cnpmjs.org/better-scroll/download/better-scroll-1.15.2.tgz#65ffc6058b8b4ff337b8dfad4bcb334d7699ceb6"
   integrity sha1-Zf/GBYuLT/M3uN+tS8szTXaZzrY=
@@ -3504,11 +3504,6 @@ functional-red-black-tree@^1.0.1:
   resolved "http://r.cnpmjs.org/functional-red-black-tree/download/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-fundebug-wxjs@^0.6.1:
-  version "0.6.1"
-  resolved "http://r.cnpmjs.org/fundebug-wxjs/download/fundebug-wxjs-0.6.1.tgz#b56d9695afacc4cbb71faee42886a5a38a71465d"
-  integrity sha1-tW2Wla+sxMu3H67kKIalo4pxRl0=
-
 gauge@~2.7.3:
   version "2.7.4"
   resolved "http://r.cnpmjs.org/gauge/download/gauge-2.7.4.tgz#2c03405c7538c39d7eb37b317022e325fb018bf7"
@@ -4619,7 +4614,7 @@ loader-runner@^2.3.0:
   resolved "http://r.cnpmjs.org/loader-runner/download/loader-runner-2.3.1.tgz#026f12fe7c3115992896ac02ba022ba92971b979"
   integrity sha1-Am8S/nwxFZkolqwCugIrqSlxuXk=
 
-loader-utils@^0.2.16, loader-utils@^0.2.6:
+loader-utils@^0.2.16:
   version "0.2.17"
   resolved "http://r.cnpmjs.org/loader-utils/download/loader-utils-0.2.17.tgz#f86e6374d43205a6e6c60e9196f17c0299bfb348"
   integrity sha1-+G5jdNQyBabmxg6RlvF8Apm/s0g=
@@ -6515,11 +6510,6 @@ requires-port@^1.0.0:
   resolved "http://r.cnpmjs.org/requires-port/download/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
-reselect@^4.0.0:
-  version "4.0.0"
-  resolved "http://r.cnpmjs.org/reselect/download/reselect-4.0.0.tgz#f2529830e5d3d0e021408b246a206ef4ea4437f7"
-  integrity sha1-8lKYMOXT0OAhQIskaiBu9OpEN/c=
-
 resolve-cwd@^2.0.0:
   version "2.0.0"
   resolved "http://r.cnpmjs.org/resolve-cwd/download/resolve-cwd-2.0.0.tgz#00a9f7387556e27038eae232caa372a6a59b665a"
@@ -7274,13 +7264,6 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "http://r.cnpmjs.org/strip-json-comments/download/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
-
-strip-loader@^0.1.2:
-  version "0.1.2"
-  resolved "http://r.cnpmjs.org/strip-loader/download/strip-loader-0.1.2.tgz#5166038181599342a424c62a49bbd21902ce8f33"
-  integrity sha1-UWYDgYFZk0KkJMYqSbvSGQLOjzM=
-  dependencies:
-    loader-utils "^0.2.6"
 
 style-loader@0.21.0:
   version "0.21.0"

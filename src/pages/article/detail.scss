@@ -13,13 +13,13 @@
       align-items: center;
       justify-content: space-between;
       .article-title{
-        @include px2rem(font-size, 21px);
+        @include px2rem(font-size, 30px);
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
       }
       .article-hot{
-        @include px2rem(font-size, 15px);
+        @include px2rem(font-size, 24px);
         color: #119d55
       }
     }
@@ -38,13 +38,14 @@
     .article-text {
       img {
         width: 100%;
+        overflow: hidden;
       }
       h1, h2, h3 {
         @include px2rem(margin-top, 20px);
         @include px2rem(margin-bottom, 10px);
       }
       h2 {
-        @include px2rem(font-size, 30px);
+        @include px2rem(font-size, 28px);
       }
       h3 {
         @include px2rem(font-size, 24px);

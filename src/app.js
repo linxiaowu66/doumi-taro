@@ -11,19 +11,19 @@ import './util/polyfill'
 
 import Index from './pages/home/index.js'
 
-const ENV = process.env.NODE_ENV || 'development'
-if (Taro.getEnv() === 'WEAPP') {
-  const fundebug = require('fundebug-wxjs')
-  fundebug.init({
-    apikey : 'e72c9fab48437f4969910d9f3895417c3d4e25f41063b069a28d93642c6e50f5',
-    releaseStage : ENV === 'production' ? 'production' : 'development',
-    silentHttp : true,
-    silentVideo: false,
-    setSystemInfo : true,
-    // setLocation : true,
-  })
-  global.fundebug = fundebug;
-}
+// const ENV = process.env.NODE_ENV || 'development'
+// if (Taro.getEnv() === 'WEAPP') {
+//   const fundebug = require('fundebug-wxjs')
+//   fundebug.init({
+//     apikey : 'e72c9fab48437f4969910d9f3895417c3d4e25f41063b069a28d93642c6e50f5',
+//     releaseStage : ENV === 'production' ? 'production' : 'development',
+//     silentHttp : true,
+//     silentVideo: false,
+//     setSystemInfo : true,
+//     // setLocation : true,
+//   })
+//   global.fundebug = fundebug;
+// }
 
 
 const store = configStore()

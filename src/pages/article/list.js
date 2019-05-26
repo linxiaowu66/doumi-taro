@@ -72,7 +72,7 @@ class ArticleList extends Component {
               <View className='ribble'>
                 {article.archiveTime}
               </View>
-              <Image src={article.picture} />
+              <Image src={article.picture} mode='aspectFit' />
               <View className='brief'>
                 <RichText nodes={article.digest}></RichText>
               </View>

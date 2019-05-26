@@ -51,11 +51,11 @@ class ArticleDetail extends Component {
           </View>
           <View className='article-tags'>
           {
-            articleDetail && articleDetail.tagsArray && articleDetail.tagsArray.map((tag, idx) => (<AtTag size='small' className='tag' circle active key={idx}>{tag}</AtTag>))
+            articleDetail && articleDetail.tagsArray && articleDetail.tagsArray.map((tag) => (<AtTag size='small' className='tag' circle active >{tag}</AtTag>))
 
           }
           </View>
-          <RichText className='article-text' nodes={articleDetail && articleDetail.previewText}>
+          <RichText className='article-text' nodes={articleDetail && articleDetail.previewText.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')}>
           </RichText>
           <DouMi
             imgStyle={{
