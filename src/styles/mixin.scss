@@ -1,0 +1,99 @@
+/* colors
+-------------------------- */
+$color-primary: #119d55 !default;
+$color-dark: #333 !default;
+$color-dark2: #666 !default;
+$color-light: #888 !default;
+
+/* button-colors
+-------------------------- */
+$btn-active: #f26d83 !default;
+$btn-disabled: #ccc !default;
+
+$btn-disabled-1: mix(#fff, $btn-active, 70%) !default;
+/* 53a8ff */
+
+/* background-colors
+-------------------------- */
+$bg-color-base: #fff !default;
+$bg-color-light: #f9f9f9 !default; //页面浅灰背景&图片浅灰背景
+$bg-color-danger: #f9efef !default; //页面浅红背景&按钮边框
+$bg-color-panel: #ec5d75 !default;
+
+/* tag-colors
+-------------------------- */
+$tag-primary: #d87182 !default;
+$tag-dark: #555 !default;
+
+/* methods
+-------------------------- */
+// 背景图片地址和大小
+@mixin bg($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+// 定位上下左右居中
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// 定位上下居中
+@mixin ct {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// 定位左右居中
+@mixin cl {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// 宽高
+@mixin wh($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// 字体大小，颜色
+@mixin sc($size, $color) {
+  font-size: $size;
+  color: $color;
+}
+
+// flex 布局和 子元素 对其方式
+@mixin fj($type: space-between) {
+  display: flex;
+  justify-content: $type;
+}
+
+// 去除单位并返回数值
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+// px转rem
+@mixin px2rem($attr, $num, $base: 24) {
+  $list: (); //存储所有转换后的值
+
+  // 遍历所有值并转换为rem单位
+  @for $i from 1 through length($num) {
+    // 计算单个rem值
+    $value: strip-units(nth($num, $i)) / $base * 1rem;
+    // 添加到列表中
+    $list: append($list, $value);
+  }
+
+  // 设置属性值
+  #{$attr}:$list;
+}
+
+@function px2rem($num, $base: 24) {
+  @return strip-units($num) / $base * 1rem;
+}

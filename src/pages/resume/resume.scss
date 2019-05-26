@@ -62,6 +62,7 @@
     border-top: #EBF2F6 2px solid;
     .title {
       box-sizing: border-box;
+      background: #F5F5F5;
       display: block;
       position: absolute;
       top: -1rem;
@@ -69,7 +70,6 @@
       margin-left: -2.4545454545454546rem;
       overflow: hidden;
       padding: 0.2727272727272727rem;
-      background: #fff;
       z-index: 2;
     }
     .dianwoda {

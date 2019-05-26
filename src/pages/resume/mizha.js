@@ -1,10 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import Footer from '../../components/Footer'
-import Menu from '../../components/Menu';
-import Widget from '../../components/Widget';
-import Header from '../../components/Header'
-import DouMi from '../../components/DouMi';
 
 import './resume.scss'
 
@@ -49,10 +45,9 @@ class MiZhaResume extends Component {
               <Text>2016.08 ~ 至今</Text>
             </View>
             <View className='project'>
-              <View className='name'>骑手和商家混合APP</View>
+              <View className='name'>等待更新</View>
               <View className='list'>
-                <View className='item'>参与项目的优化和维护，需求迭代</View>
-                <View className='item'>参与网关的开发优化、部署、监控</View>
+                <View className='item'>等待更新</View>
               </View>
             </View>
           </View>

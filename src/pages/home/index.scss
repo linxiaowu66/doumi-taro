@@ -1,79 +1,10 @@
-@-webkit-keyframes sb-pulse {
-  0% {
-    -webkit-box-shadow: 0 0 0 0 rgba(139,195,74,.5);
-    box-shadow: 0 0 0 0 rgba(139,195,74,.5);
-  }
-  70% {
-    -webkit-box-shadow: 0 0 0 20px rgba(139,195,74,0);
-    box-shadow: 0 0 0 20px rgba(139,195,74,0);
-  }
-  100% {
-    -webkit-box-shadow: 0 0 0 0 rgba(139,195,74,0);
-    box-shadow: 0 0 0 0 rgba(139,195,74,0);
-  }
-}
 .home-container{
-  .header{
-    .wedding-link{
-      position: fixed;
-      top: 0.9090909090909091rem;
-      right: 0.9090909090909091rem;
-      z-index: 200;
-      display: block;
-      padding: 0.4090909090909091rem 0.5454545454545454rem 0.2727272727272727rem;
-      border-radius: 50%;
-      background: #8bc34a;
-      color: #fff;
-      transition: background 0.6s ease-out;
-      animation: sb-pulse 2s infinite;
-      font-size: 0.8181818181818182rem;
-      line-height: 1.4318181818181819rem;
-    }
-  }
   .wrapper{
     width: 90%;
     max-width: 760px;
     margin: 0 auto;
     padding-top: 2.272727272727273rem;
 
-    .navigation{
-      position: relative;
-      height: auto;
-      display: flex;
-      flex-wrap: wrap;
-      .nav-item{
-        flex-basis: 50%;
-        margin-bottom: 0.45454545454545453rem;
-        position: relative;
-        .nav-pic{
-          vertical-align: middle;
-        }
-        .nav-text{
-          position: absolute;
-          top: 0px;
-          background: rgba(0, 0, 0,0.5);
-          bottom: 0px;
-          left: 0px;
-          right: 0px;
-          color: #fff;
-          .text-title{
-            font-size: 1.0909090909090908rem;
-            line-height: 1.5454545454545454rem;
-            margin: 0.22727272727272727rem 0 0 0.36363636363636365rem;
-          }
-          .text-content{
-            font-size: 0.8181818181818182rem;
-            margin-left: 1.4545454545454546rem;
-            width: 6.818181818181818rem;
-          }
-          .text-location{
-            position: absolute;
-            right: 2%;
-            bottom: 5%;
-          }
-        }
-      }
-    }
     .hot-articles{
       font-size: 1rem;
       margin: 1.3636363636363635rem 0px;

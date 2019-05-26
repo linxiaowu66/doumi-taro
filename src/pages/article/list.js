@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text, Image, ScrollView } from '@tarojs/components'
+import { View, Text, Image, ScrollView, RichText } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import Footer from '../../components/Footer'
 import Widget from '../../components/Widget'
@@ -54,11 +54,6 @@ class ArticleList extends Component {
     const { isShowMenu } = this.state
     return (
       <View className='list-container'>
-        <Header showMenu={this.showMenu} />
-        <View className='bread-crumb'>
-          <Text>首页</Text>
-          <Text>/ 博文列表</Text>
-        </View>
         <ScrollView
           className='scrollview'
           scrollY
@@ -79,14 +74,13 @@ class ArticleList extends Component {
               </View>
               <Image src={article.picture} />
               <View className='brief'>
-                <Text>{article.digest}</Text>
+                <RichText nodes={article.digest}></RichText>
               </View>
               <View className='nav-to-detail'>阅读全文</View>
             </View>
           ))
         }
         </ScrollView>
-        <Menu isShow={isShowMenu} />
         <Widget />
         <Footer />
       </View>

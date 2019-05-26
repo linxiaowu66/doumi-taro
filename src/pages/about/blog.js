@@ -1,10 +1,9 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View, Text, RichText } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import Footer from '../../components/Footer'
 import Menu from '../../components/Menu';
 import Widget from '../../components/Widget';
-import Header from '../../components/Header'
 import { fetchWebsiteChangeLog } from '../../actions/index'
 // import DouMi from '../../components/DouMi';
 
@@ -38,19 +37,13 @@ class AboutBlog extends Component {
     const { changeLog } = this.props.websiteReducer
     return (
       <View className='blog-container'>
-        <Header />
-        <View className='bread-crumb'>
-          <Text>首页</Text>
-          <Text>/ 博文列表</Text>
-          <Text>/ 关于本站</Text>
-        </View>
         <View className='website-history'>
         {
           changeLog && changeLog.map((item, idx) => (
             <View className='changelog' key={idx}>
               <View className='title'>{item.title}</View>
               <View className='desc'>{item.desc1}</View>
-              <View className='desc'>{item.desc2}</View>
+              <RichText className='desc' nodes={item.desc2}></RichText>
               <View className='update-time'>
                 <Text>{item.date}</Text>
                 <Text>{item.time}</Text>

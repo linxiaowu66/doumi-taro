@@ -23,20 +23,11 @@ function get_android_version() {
 function getGatewayAddr() {
   return {
     // development: `http://${process.env.IP}:13950`,
-    development: 'http://127.0.0.1:1337',
+    development: 'https://blog.5udou.cn',
     production: 'https://blog.5udou.cn',
   }[ENV]
 }
 
-function getHost() {
-  return {
-    development: `${process.env.IP}`,
-    // development: '127.0.0.1',
-    qa: '0.0.0.0',
-    qa1: '0.0.0.0',
-    production: '0.0.0.0',
-  }[ENV]
-}
 
 function getPort() {
   return { development: 9100 }[ENV]
@@ -61,7 +52,6 @@ function isWeiXin() {
 
 module.exports = {
   port: getPort(),
-  host: getHost(),
   testOnRealWeiXinEnv: testOnRealWeixinEnv(),
   gatewayAddr: getGatewayAddr(),
   // entryPageAddr: getEntryPageAddr(),

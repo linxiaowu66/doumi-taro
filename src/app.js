@@ -1,4 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
+import 'taro-ui/dist/style/index.scss'
 
 import { Provider } from '@tarojs/redux'
 
@@ -6,6 +7,7 @@ import '@tarojs/async-await'
 
 import configStore from './store'
 import './util/polyfill'
+
 
 import Index from './pages/home/index.js'
 
@@ -44,6 +46,32 @@ class App extends Component {
       navigationBarTitleText: '豆米的博客',
       navigationBarTextStyle: 'black',
       backgroundColor: '#f6f7f8',
+    },
+    tabBar: {
+      list: [
+        {
+          pagePath: 'pages/home/index',
+          text: '首页',
+          iconPath: './assets/tabs/home.png',
+          selectedIconPath: './assets/tabs/home-active.png',
+        },
+        {
+          pagePath: 'pages/article/list',
+          text: '博客',
+          iconPath: './assets/tabs/blog.png',
+          selectedIconPath: './assets/tabs/blog-active.png',
+        },
+        {
+          pagePath: 'pages/about/doumi',
+          text: '我的',
+          iconPath: './assets/tabs/user.png',
+          selectedIconPath: './assets/tabs/user-active.png',
+        },
+      ],
+      color: '#333',
+      selectedColor: '#333',
+      backgroundColor: '#fff',
+      borderStyle: 'white',
     },
   }
   componentDidMount() {

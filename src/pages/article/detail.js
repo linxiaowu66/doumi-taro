@@ -1,14 +1,14 @@
 import Taro, { Component } from '@tarojs/taro'
 import { connect } from '@tarojs/redux'
-import { View, Text } from '@tarojs/components'
+import { View, Text, RichText } from '@tarojs/components'
+import { AtTag } from 'taro-ui'
 import Footer from '../../components/Footer'
-import Menu from '../../components/Menu';
 import Widget from '../../components/Widget';
-import Header from '../../components/Header'
 import DouMi from '../../components/DouMi';
 import { fetchArticleDetail } from '../../actions/index'
 
 import './detail.scss'
+import './github.css'
 
 @connect(({ articleReducer }) => ({
   articleReducer
@@ -41,31 +41,22 @@ class ArticleDetail extends Component {
     console.log('******))))', articleDetail)
     return (
       <View className='detail-container'>
-        <Header />
-        <View className='bread-crumb'>
-          <Text>首页</Text>
-          <Text>/ 博文列表</Text>
-          <Text>{`/ ${articleDetail && articleDetail.title}`}</Text>
-        </View>
         <View className='article-content'>
           <View className='article-header'>
-            <View className='article-date'>
-              <Text>{articleDetail && articleDetail.archiveDay}</Text>
-              <Text>{articleDetail && articleDetail.archiveMonth}</Text>
-            </View>
             <View className='article-title'>{articleDetail && articleDetail.title}</View>
             <View className='article-hot'>{`${articleDetail & articleDetail.pageViewsCount}℃`}</View>
           </View>
+          <View className='article-time'>
+            <Text>{articleDetail && articleDetail.archiveTime}</Text>
+          </View>
           <View className='article-tags'>
           {
-            articleDetail && articleDetail.tagsArray && articleDetail.tagsArray.map((tag, idx) => (<Text key={idx}>{tag}</Text>))
+            articleDetail && articleDetail.tagsArray && articleDetail.tagsArray.map((tag, idx) => (<AtTag size='small' className='tag' circle active key={idx}>{tag}</AtTag>))
+
           }
           </View>
-          <View className='article-text'>
-          {
-            articleDetail && articleDetail.content
-          }
-          </View>
+          <RichText className='article-text' nodes={articleDetail && articleDetail.previewText}>
+          </RichText>
           <DouMi
             imgStyle={{
               width: '3.090909090909091rem',
@@ -78,11 +69,7 @@ class ArticleDetail extends Component {
               lineHeight: '0.8181818181818182rem'
             }}
           />
-          <View id='disqus_thread'>
-            评论正在加载，请稍后...
-          </View>
         </View>
-        <Menu />
         <Widget />
         <Footer />
       </View>
