@@ -15,6 +15,10 @@ export default class DouMiSwiper extends Component {
   };
 
   navTo = (link) => {
+    if (link === '/pages/home/index' || link === '/pages/article/list' || link === 'pages/about/doumi') {
+      Taro.switchTab({ url: link })
+      return
+    }
     Taro.navigateTo({ url: link })
   }
 

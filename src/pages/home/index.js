@@ -49,9 +49,12 @@ class Index extends Component {
   componentDidHide () { }
 
   navToArticleList = () => {
-    Taro.navigateTo({ url: `/pages/article/list` })
+    Taro.switchTab({ url: `/pages/article/list` })
   }
 
+  navToArticleDetail = (item) => {
+    Taro.navigateTo({ url: `/pages/article/detail?slug=${item.slug}` })
+  }
   render () {
     const { hottestArticles } = this.props.articleReducer
     const banner = [{
@@ -79,7 +82,7 @@ class Index extends Component {
           <View className='article-list'>
           {
             hottestArticles && hottestArticles.map(item => (
-              <View className='article'>
+              <View className='article' onClick={this.navToArticleDetail.bind(this, item)}>
                 <Text className='title'>{item.title}</Text>
                 <Text className='time'>{item.archiveTime}</Text>
               </View>
