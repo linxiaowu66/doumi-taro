@@ -1,6 +1,9 @@
 import Taro, { Component } from '@tarojs/taro'
 import { connect } from '@tarojs/redux'
-import { View, Text, RichText } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
+import {
+  TaroRichText
+} from 'taro_rich_text';
 import { AtTag } from 'taro-ui'
 import Footer from '../../components/Footer'
 import Widget from '../../components/Widget';
@@ -38,7 +41,6 @@ class ArticleDetail extends Component {
 
   render () {
     const { articleDetail } = this.props.articleReducer
-    console.log('******))))', articleDetail)
     return (
       <View className='detail-container'>
         <View className='article-content'>
@@ -51,12 +53,15 @@ class ArticleDetail extends Component {
           </View>
           <View className='article-tags'>
           {
-            articleDetail && articleDetail.tagsArray && articleDetail.tagsArray.map((tag) => (<AtTag size='small' className='tag' circle active >{tag}</AtTag>))
-
+            articleDetail && articleDetail.tagsArray && articleDetail.tagsArray.map((tag, index) => (<AtTag size='small' className='tag' circle active key={index}>{tag}</AtTag>))
           }
           </View>
-          <RichText className='article-text' nodes={articleDetail && articleDetail.previewText.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')}>
-          </RichText>
+          <TaroRichText
+            raw={false}
+            className='article-text'
+            type='markdown'
+            richText={articleDetail && articleDetail.content}
+          />
           <DouMi
             imgStyle={{
               width: '3.090909090909091rem',

@@ -1,6 +1,9 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text, Image, ScrollView, RichText } from '@tarojs/components'
+import { View, Image, ScrollView } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
+import {
+  TaroRichText
+} from 'taro_rich_text';
 import Footer from '../../components/Footer'
 import Widget from '../../components/Widget'
 import Header from '../../components/Header';
@@ -74,7 +77,12 @@ class ArticleList extends Component {
               </View>
               <Image src={article.picture} mode='aspectFit' />
               <View className='brief'>
-                <RichText nodes={article.digest}></RichText>
+                <TaroRichText
+                  raw={false}
+                  className='article-text'
+                  type='html'
+                  richText={article && article.digest}
+                />
               </View>
               <View className='nav-to-detail'>阅读全文</View>
             </View>

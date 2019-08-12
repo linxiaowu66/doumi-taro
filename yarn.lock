@@ -605,7 +605,7 @@ are-we-there-yet@~1.1.2:
     delegates "^1.0.0"
     readable-stream "^2.0.6"
 
-argparse@^1.0.7:
+argparse@^1.0.10, argparse@^1.0.7:
   version "1.0.10"
   resolved "http://r.cnpmjs.org/argparse/download/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
   integrity sha1-vNZ5HqWuCXJeF+WtmIE0zUCz2RE=
@@ -746,6 +746,13 @@ atob@^2.1.1:
   version "2.1.2"
   resolved "http://r.cnpmjs.org/atob/download/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha1-bZUX654DDSQ2ZmZR6GvZ9vE1M8k=
+
+autolinker@~0.28.0:
+  version "0.28.1"
+  resolved "http://r.cnpmjs.org/autolinker/download/autolinker-0.28.1.tgz#0652b491881879f0775dace0cdca3233942a4e47"
+  integrity sha1-BlK0kYgYefB3XazgzcoyM5QqTkc=
+  dependencies:
+    gulp-header "^1.7.1"
 
 autoprefixer@8.6.4:
   version "8.6.4"
@@ -2086,6 +2093,13 @@ concat-stream@^1.5.0, concat-stream@^1.6.0:
     inherits "^2.0.3"
     readable-stream "^2.2.2"
     typedarray "^0.0.6"
+
+concat-with-sourcemaps@*:
+  version "1.1.0"
+  resolved "http://r.cnpmjs.org/concat-with-sourcemaps/download/concat-with-sourcemaps-1.1.0.tgz#d4ea93f05ae25790951b99e7b3b09e3908a4082e"
+  integrity sha1-1OqT8FriV5CVG5nns7CeOQikCC4=
+  dependencies:
+    source-map "^0.6.1"
 
 connect-history-api-fallback@^1.3.0:
   version "1.5.0"
@@ -3679,6 +3693,15 @@ graceful-fs@^4.1.15:
   resolved "http://r.cnpmjs.org/graceful-fs/download/graceful-fs-4.1.15.tgz#ffb703e1066e8a0eeaa4c8b80ba9253eeefbfb00"
   integrity sha1-/7cD4QZuig7qpMi4C6klPu77+wA=
 
+gulp-header@^1.7.1:
+  version "1.8.12"
+  resolved "http://r.cnpmjs.org/gulp-header/download/gulp-header-1.8.12.tgz#ad306be0066599127281c4f8786660e705080a84"
+  integrity sha1-rTBr4AZlmRJygcT4eGZg5wUICoQ=
+  dependencies:
+    concat-with-sourcemaps "*"
+    lodash.template "^4.4.0"
+    through2 "^2.0.0"
+
 handle-thing@^2.0.0:
   version "2.0.0"
   resolved "http://r.cnpmjs.org/handle-thing/download/handle-thing-2.0.0.tgz#0e039695ff50c93fc288557d696f3c1dc6776754"
@@ -4695,6 +4718,11 @@ lodash._isiterateecall@^3.0.0:
   resolved "http://r.cnpmjs.org/lodash._isiterateecall/download/lodash._isiterateecall-3.0.9.tgz#5203ad7ba425fae842460e696db9cf3e6aac057c"
   integrity sha1-UgOte6Ql+uhCRg5pbbnPPmqsBXw=
 
+lodash._reinterpolate@^3.0.0:
+  version "3.0.0"
+  resolved "http://r.cnpmjs.org/lodash._reinterpolate/download/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
+  integrity sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=
+
 lodash.assign@^3.0.0:
   version "3.2.0"
   resolved "http://r.cnpmjs.org/lodash.assign/download/lodash.assign-3.2.0.tgz#3ce9f0234b4b2223e296b8fa0ac1fee8ebca64fa"
@@ -4765,6 +4793,21 @@ lodash.tail@^4.1.1:
   version "4.1.1"
   resolved "http://r.cnpmjs.org/lodash.tail/download/lodash.tail-4.1.1.tgz#d2333a36d9e7717c8ad2f7cacafec7c32b444664"
   integrity sha1-0jM6NtnncXyK0vfKyv7HwytERmQ=
+
+lodash.template@^4.4.0:
+  version "4.5.0"
+  resolved "http://r.cnpmjs.org/lodash.template/download/lodash.template-4.5.0.tgz#f976195cf3f347d0d5f52483569fe8031ccce8ab"
+  integrity sha1-+XYZXPPzR9DV9SSDVp/oAxzM6Ks=
+  dependencies:
+    lodash._reinterpolate "^3.0.0"
+    lodash.templatesettings "^4.0.0"
+
+lodash.templatesettings@^4.0.0:
+  version "4.2.0"
+  resolved "http://r.cnpmjs.org/lodash.templatesettings/download/lodash.templatesettings-4.2.0.tgz#e481310f049d3cf6d47e912ad09313b154f0fb33"
+  integrity sha1-5IExDwSdPPbUfpEq0JMTsVTw+zM=
+  dependencies:
+    lodash._reinterpolate "^3.0.0"
 
 lodash@4.17.11, lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.3.0, lodash@~4.17.10:
   version "4.17.11"
@@ -6418,6 +6461,14 @@ relateurl@0.2.x:
   resolved "http://r.cnpmjs.org/relateurl/download/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
   integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
 
+remarkable@^1.7.1:
+  version "1.7.4"
+  resolved "http://r.cnpmjs.org/remarkable/download/remarkable-1.7.4.tgz#19073cb960398c87a7d6546eaa5e50d2022fcd00"
+  integrity sha1-GQc8uWA5jIen1lRuql5Q0gIvzQA=
+  dependencies:
+    argparse "^1.0.10"
+    autolinker "~0.28.0"
+
 remove-trailing-separator@^1.0.1:
   version "1.1.0"
   resolved "http://r.cnpmjs.org/remove-trailing-separator/download/remove-trailing-separator-1.1.0.tgz#c24bce2a283adad5bc3f58e0d48249b92379d8ef"
@@ -7376,6 +7427,13 @@ taro-ui@^2.1.0:
     dayjs "^1.7.7"
     lodash "^4.17.10"
     prop-types "^15.6.2"
+
+taro_rich_text@^1.1.0:
+  version "1.1.0"
+  resolved "http://r.cnpmjs.org/taro_rich_text/download/taro_rich_text-1.1.0.tgz#9e17c9f273a49d624dc5cd518f3a363461a1631a"
+  integrity sha1-nhfJ8nOknWJNxc1Rjzo2NGGhYxo=
+  dependencies:
+    remarkable "^1.7.1"
 
 terser-webpack-plugin@^1.1.0:
   version "1.3.0"

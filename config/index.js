@@ -1,6 +1,6 @@
 const config = {
-  projectName: 'taro-test',
-  date: '2018-10-21',
+  projectName: 'doumi-blog',
+  date: '2019-08-10',
   designWidth: 750,
   sourceRoot: 'src',
   outputRoot: 'dist',
@@ -53,6 +53,7 @@ const config = {
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
+    esnextModules: ['taro_rich_text'],
     module: {
       postcss: {
         autoprefixer: {
